@@ -21,14 +21,14 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.7</java.version>
+        <java.version>1.8</java.version>
 
-        <jedis.version>3.0.1</jedis.version>
-        <commons-pool2.version>2.6.2</commons-pool2.version>
+        <jedis.version>4.3.1</jedis.version>
+        <commons-pool2.version>2.12.0</commons-pool2.version>
         <slf4j-api.version>1.7.26</slf4j-api.version>
 
         <maven-compiler.version>3.6.1</maven-compiler.version>
-        <source-java.version>1.7</source-java.version>
+        <source-java.version>1.8</source-java.version>
         <target-java.version>${source-java.version}</target-java.version>
 
         <!-- For local development properties begins.. -->
