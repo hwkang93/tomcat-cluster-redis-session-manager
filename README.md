@@ -77,6 +77,7 @@ tomcat/conf/redis-data-cache.properties
 </session-config>
 ```
 
+
 ### Note:
   - **All your session attribute values must implement java.io.Serializable.**
 
