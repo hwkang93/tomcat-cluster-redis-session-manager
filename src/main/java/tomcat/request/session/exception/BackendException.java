@@ -5,7 +5,7 @@ public class BackendException extends RuntimeException {
 
     private static final String ERROR_MESSAGE = "For some reason we couldn't process your request. Please contact system administrator for more details.";
 
-    public BackendException() {
-        super(ERROR_MESSAGE, null, false, false);
+    public BackendException(Exception e) {
+        super(ERROR_MESSAGE, e.getCause(), true, true);
     }
 }

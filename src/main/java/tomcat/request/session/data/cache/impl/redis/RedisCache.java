@@ -63,21 +63,24 @@ public class RedisCache implements DataCache {
         switch (config.getRedisConfigType()) {
             case CLUSTER:
                 this.dataCache = new RedisClusterManager((Set<HostAndPort>) nodes,
+                        config.getRedisUsername(),
                         config.getRedisPassword(),
                         config.getRedisTimeout(),
                         poolConfig);
                 break;
             case SENTINEL:
-                this.dataCache = new RedisSentinelManager((Set<String>) nodes,
+                this.dataCache = RedisSentinelManager.createInstanceBy((Set<String>) nodes,
                         config.getRedisSentinelMaster(),
+                        config.getRedisUsername(),
                         config.getRedisPassword(),
                         config.getRedisDatabase(),
                         config.getRedisTimeout(),
                         poolConfig);
                 break;
             default:
-                this.dataCache = new RedisStandardManager(((List<String>) nodes).get(0),
+                this.dataCache = RedisStandardManager.createInstanceBy(((List<String>) nodes).get(0),
                         Integer.parseInt(((List<String>) nodes).get(1)),
+                        config.getRedisUsername(),
                         config.getRedisPassword(),
                         config.getRedisDatabase(),
                         config.getRedisTimeout(),

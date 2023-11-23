@@ -104,7 +104,7 @@ public class SingleSignOnValve extends SingleSignOn {
 
         } catch (IOException | ServletException | RuntimeException ex) {
             LOGGER.error("Error processing request", ex);
-            throw new BackendException();
+            throw new BackendException(ex);
         }
     }
 

@@ -58,6 +58,9 @@ public class Config implements Serializable {
     @Property(name = "redis.time.betweenEviction", type = INTEGER, defaultValue = "60000")
     private Integer redisTimeBetweenEviction;
 
+    @Property(name = "redis.username")
+    private String redisUsername;
+
     @Property(name = "redis.password")
     private String redisPassword;
 
@@ -97,6 +100,7 @@ public class Config implements Serializable {
                   Boolean redisTestWhileIdle,
                   Integer redisTestNumPerEviction,
                   Integer redisTimeBetweenEviction,
+                  String redisUsername,
                   String redisPassword,
                   Integer redisDatabase,
                   Integer redisTimeout,
@@ -117,6 +121,7 @@ public class Config implements Serializable {
         this.redisTestWhileIdle = redisTestWhileIdle;
         this.redisTestNumPerEviction = redisTestNumPerEviction;
         this.redisTimeBetweenEviction = redisTimeBetweenEviction;
+        this.redisUsername = redisUsername;
         this.redisPassword = redisPassword;
         this.redisDatabase = redisDatabase;
         this.redisTimeout = redisTimeout;
@@ -185,6 +190,11 @@ public class Config implements Serializable {
     /** To get 'redis.time.betweenEviction' value. */
     public Integer getRedisTimeBetweenEviction() {
         return redisTimeBetweenEviction;
+    }
+
+    /** To get 'redis.password' value. */
+    public String getRedisUsername() {
+        return (redisUsername == null || redisUsername.isEmpty()) ? null : redisUsername;
     }
 
     /** To get 'redis.password' value. */

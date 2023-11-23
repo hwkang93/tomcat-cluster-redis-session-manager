@@ -29,7 +29,7 @@ public class SessionHandlerValve extends ValveBase {
             getNext().invoke(request, response);
         } catch (IOException | ServletException | RuntimeException ex) {
             LOGGER.error("Error processing request", ex);
-            throw new BackendException();
+            throw new BackendException(ex);
         } finally {
             if (this.manager != null) {
                 this.manager.afterRequest();

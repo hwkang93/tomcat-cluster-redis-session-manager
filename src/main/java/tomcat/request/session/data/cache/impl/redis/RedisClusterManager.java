@@ -19,11 +19,12 @@ class RedisClusterManager extends RedisManager {
     private static final long FAILURE_WAIT_TIME = 4000L;
 
     RedisClusterManager(Set<HostAndPort> nodes,
+                        String username,
                         String password,
                         int timeout,
                         JedisPoolConfig poolConfig) {
         super(null, FAILURE_WAIT_TIME);
-        this.cluster = new JedisCluster(nodes, timeout, Protocol.DEFAULT_TIMEOUT, DEFAULT_MAX_RE_DIRECTIONS, password, poolConfig);
+        this.cluster = new JedisCluster(nodes, username, password);
     }
 
     /** {@inheritDoc} */
